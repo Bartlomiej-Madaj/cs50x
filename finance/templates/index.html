@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Log In
+{% endblock %}
+
+{% block main %}
+{% if stocks[0] %}
+<div class="index">
+    <span class="title">Symbol</span>
+    <span class="title">Name</span>
+    <span class="title">Shares</span>
+    <span class="title">Current price</span>
+    <span class="title">TOTAL</span>
+</div>
+{% for stock in stocks %}
+{% set total = stock['shares'] * stock['current_price'] %}
+<div class="index">
+    <span class="row">{{stock['symbol']}}</span>
+    <span class="row">{{stock['name']}}</span>
+    <span class="row">{{stock['shares']}}</span>
+    <span class="row">{{stock['current_price']}}</span>
+    <span class="row">${{total|round(2)}}</span>
+</div>
+<div class="form_group">
+    <form action="/buy" method="post">
+        <input hidden name="symbol" value="{{stock['symbol']}}">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="shares"
+        placeholder="Number of shares" type="number">
+        <button class="btn btn-primary" type="submit">Buy more</button>
+    </form>
+    <form action="/sell" method="post">
+        <input hidden name="symbol" value="{{stock['symbol']}}">
+        <button class="btn btn-primary" type="submit">Sell</button>
+        <input class="form-control mx-auto w-auto" name="shares" value="{{stock['shares']}}" type="number" min="0" max="{{stock['shares']}}">
+    </form>
+</div>
+<hr>
+{% endfor %}
+
+{% else %}
+<div>
+    <p>You do not have any stocks. Buy some!!</p>
+</div>
+{% endif %}
+<div class="sum">
+    <span>Cash</span>
+    <span>${{cash}}</span>
+</div>
+<div class="sum">
+    <span>TOTAL</span>
+    <span>${{total}}</span>
+</div>
+<h5 style="margin-bottom: 1rem">Maybe you want to add some cash to your wallet?</h5>
+<form class="sell_form" action="/cash" method="post">
+    <input style="height: 2.5rem" name="cash" placeholder="How much?" type="number" step="0.1">
+    <button style="height: 2.5rem" class="btn btn-primary" type="submit">Add cash</button>
+</form>
+{% endblock %}

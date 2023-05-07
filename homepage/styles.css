@@ -1,0 +1,30 @@
+h1 {
+    font-size: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 0;
+  }
+
+  .navbar-brand {
+    font-size: 2rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .background {
+    background-image: url('background.jpg');
+  }

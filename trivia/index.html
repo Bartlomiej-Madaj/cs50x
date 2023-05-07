@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const choice_btn = document.querySelectorAll(".choice");
+            choice_btn.forEach(choice => {
+                choice.addEventListener('click', function(){
+                    if (choice.textContent === "To prevent unauthorized access to a network") {
+                    choice.style.backgroundColor = 'green';
+                    choice.innerText = "Correct!";
+                } else {
+                    choice.style.backgroundColor = 'red';
+                    choice.innerText = "Incorrect!";
+                }
+                return;
+                })
+            });
+
+            const answer_form = document.getElementById("answer_form");
+            answer_form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                let answer_input = document.getElementById("answer");
+                if(answer_input.value === "Compilation"){
+                    answer_input.value = "Correct!";
+                    answer_input.style.backgroundColor = 'green';
+                } else {
+                    answer_input.value = "Incorrect!";
+                    answer_input.style.backgroundColor = 'red';
+                }
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <h3>What is the purpose of a firewall in computer networks?</h3>
+            <button class="choice">To filter out spam emails</button>
+            <button class="choice">To protect against viruses and malware</button>
+            <button class="choice">To prevent unauthorized access to a network</button>
+            <button class="choice">To increase the speed of internet connections</button>
+            <button class="choice">To optimize website performance</button>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>What is the process of converting code into an executable form called?</h3>
+            <form id="answer_form">
+                <input id="answer" type="text" name="answer">
+                <button id="answer_btn">Check Answer</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

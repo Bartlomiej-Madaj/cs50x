@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="/static/styles.css" rel="stylesheet">
+    <title>Birthdays</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Birthdays</h1>
+    </div>
+    <div class="container">
+        <div class="section">
+            <h2>Add a Birthday</h2>
+            <form action="/" method="POST">
+                <input id="name" name="name" type="text" placeholder="Name..." autocomplete='off'>
+                <input name="month" type="number" placeholder="Month">
+                <input name="day" type="number" placeholder="Day">
+                <button type="submit">Add Birthday</button>
+            </form>
+        </div>
+        <div class="section">
+            <h2>All Birthdays</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for person in people %}
+                    <tr>
+                        <form action="/delete" method="POST">
+                            <input name="id" hidden value="{{person['id']}}">
+                            <th>{{person['name']}}</th>
+                            <th>{{person['month']}}/{{person['day']}}
+                            </th>
+                            <th class="remove_btn"><button  type="submit">Delete</button></th>
+                        </form>
+                        <form action="/update/{{person['id']}}" method="GET">
+                            <th class="edit_btn"><button  type="submit">Edit</button></th>
+                        </form>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Log In
+{% endblock %}
+
+{% block main %}
+{% if not bought_stocks[0] and not sold_stocks[0] %}
+    <h2>Youd do not have any transactions!</h2>
+{% endif %}
+{% if bought_stocks[0] %}
+<h3>Purchase transactions</h3>
+<div class="index">
+    <span class="show_title">Symbol</span>
+    <span class="show_title">Name</span>
+    <span class="show_title">Shares</span>
+    <span class="show_title">Purchase Price</span>
+    <span class="show_title">Date Transaction</span>
+</div>
+{% for stock in bought_stocks %}
+<div class="index">
+    <span class="row">{{stock['symbol']}}</span>
+    <span class="row">{{stock['name']}}</span>
+    <span class="row">{{stock['shares']}}</span>
+    <span class="row">${{stock['buy_price']}}</span>
+    <span class="row">{{stock['date']}}</span>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
+{% if sold_stocks[0] %}
+<h3>Sales transactions</h3>
+<div class="index">
+    <span class="show_title">Symbol</span>
+    <span class="show_title">Name</span>
+    <span class="show_title">Shares</span>
+    <span class="show_title">Selling Price</span>
+    <span class="show_title">Date Transaction</span>
+</div>
+{% for stock in sold_stocks %}
+<div class="index">
+    <span class="row">{{stock['symbol']}}</span>
+    <span class="row">{{stock['name']}}</span>
+    <span class="row">{{stock['shares']}}</span>
+    <span class="row">${{stock['sale_price']}}</span>
+    <span class="row">{{stock['date']}}</span>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

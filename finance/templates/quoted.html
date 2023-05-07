@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Log In
+{% endblock %}
+
+{% block main %}
+    {% if stock['symbol']:%}
+    <div>
+        <p>Stock name: {{stock['name']}}</p>
+    </div>
+    <div>
+        <p>Stock symbol: {{stock['symbol']}}</p>
+    </div>
+    <div>
+        <p>Stock price: ${{stock['price']}}</p>
+    </div>
+    {% endif %}
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol"
+                placeholder="Symbol" type="text" value="{{stock['symbol']}}">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="shares"
+                placeholder="Number of shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy shares</button>
+    </form>
+{% endblock %}

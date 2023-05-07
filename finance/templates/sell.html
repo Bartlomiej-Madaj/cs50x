@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form class="sell_form" action="/show" method="post">
+        <select name="symbol" id="sell_select">
+            <option selected disabled>Symbol</option>
+            {% for key in stocks.keys() %}
+            <option value="{{key}}">{{key}}</option>
+            {% endfor %}
+        </select>
+        <button style="width: 9rem" class="btn btn-primary" type="submit">Show stocks</button>
+    </form>
+{% endblock %}

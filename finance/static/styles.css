@@ -1,0 +1,118 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+.title {
+    font-weight: 700;
+}
+
+.index {
+    display: flex;
+    margin: 0 1rem;
+}
+
+.index span {
+    display: flex;
+    text-align: center;
+    width: 20%;
+    height: 2rem;
+    margin: auto 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.index:nth-child(even){
+    background-color: grey;
+    color: white;
+}
+
+.sum {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.5rem 1rem;
+}
+
+.sum span:first-of-type {
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.sell_btn {
+    width: 8rem;
+}
+
+.show_title {
+    font-weight: 700;
+}
+
+.show {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+
+ form > .show {
+    height: 3rem;
+    background-color: grey;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.show span {
+    display: inline-block;
+    text-align: center;
+    width: 15%;
+}
+
+.stock_num {
+    width: 5rem;
+    height: 2rem;
+    background-color: #ccc;
+}
+
+.sell_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sell_form > select, button {
+    height: 2.5rem;
+    width: 7rem;
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+    margin: 0 0.6rem;
+}
+
+.form_group {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+.form_group form {
+    display: flex;
+}
+

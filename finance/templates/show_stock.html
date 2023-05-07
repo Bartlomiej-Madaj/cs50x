@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Log In
+{% endblock %}
+
+{% block main %}
+<div class="show">
+    <span class="show_title">Symbol</span>
+    <span class="show_title">Name</span>
+    <span class="show_title">Shares</span>
+    <span class="show_title">Current Price</span>
+    <span class="show_title">TOTAL</span>
+</div>
+<form  action="/sell" method="post">
+    <div class="show">
+        <input name="symbol" hidden value="{{stock['symbol']}}">
+        <span>{{stock['symbol']}}</span>
+        <span>{{stock['name']}}</span>
+        <input class="stock_num" name="shares" value="{{shares}}" type="number" min="0" max="{{shares}}">
+        <span id="current_price">${{current_price}}</span>
+        <span class="amount_price" id="amount_price">${{shares * current_price}}</span>
+    </div>
+    <button class="btn btn-primary mt-4 sell_btn" type="submit">Sell</button>
+</form>
+<script defer>
+    let stock_num = document.querySelectorAll(".stock_num");
+    const current_price = document.getElementById("current_price").textContent.replace('$', '');
+    const amount_price = document.querySelectorAll(".amount_price");
+    stock_num.forEach((item, index) => {
+        item.addEventListener("input", function (event) {
+            let value = item.value;
+            amount_price[index].textContent = `$${(parseFloat(value) * parseFloat(current_price)).toFixed(2)}`;
+        })
+    })
+
+</script>
+{% endblock %}

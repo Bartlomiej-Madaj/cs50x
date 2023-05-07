@@ -1,0 +1,3 @@
+Ad. 1. The average energy, valence, and danceability of a person’s top 100 songs from the past year are 0.66, 0.48, 0.72, which indicates that the given song list provides more positive than negative auditory impressions.
+
+Ad. 2. Because it is an average value. In my opinion, a better way could be sorting the energy, valence, and danceability values from highest to lowest and comparing those values for each song.

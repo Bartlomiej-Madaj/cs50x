@@ -1,0 +1,12 @@
+sort1 uses:
+bubble sort
+How do you know?:
+Sorting text in file sorted.txt (Ω(n)) took a relatively short time compared to reserved.txt (O(n^2)) and random.txt (O(n^2)).
+sort2 uses:
+merge sort
+How do you know?:
+The sort2 program sorts files at a similar speed regardless of the type of file being sorted(Ω(n logn), O(n logn)), but faster than the sort3 program.
+sort3 uses:
+selection sort
+How do you know?:
+The sort3 program sorts files at a similar speed regardless of the type of file being sorted(Ω(n^2), O(n^2)), but slower than the sort2 program.
